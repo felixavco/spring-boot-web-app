@@ -1,20 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title th:text="${title}"></title>
-    </head>
+<head th:replace="fragments/head::head"></head>
 
     <body>
-        <h1>Profile</h1>
-        <div th:if="@{!user.isEmpty}">
-            <h3 th:text="${user.firstName}"></h3>
-        </div>
-
-        <div th:if="@{user.isEmpty}">
-            <h3>There is no user data!</h3>
-        </div>
+        <div  th:replace="fragments/navbar::navbar"></div>
+        <h1>Profile <span th:if="${user.firstName}" th:text="${user.firstName}"></span></h1>
+        <p th:if="${user.firstName}"><strong>Full Name: </strong> <span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span></p>
+        <p th:if="${user.email}"><strong>Email: </strong> <span th:text="${user.email}"></span></p>
     </body>
 </html>
