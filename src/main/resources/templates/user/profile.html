@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head::head"></head>
+<head th:replace="fragments/header::head"></head>
 
-    <body>
-        <div  th:replace="fragments/navbar::navbar"></div>
-        <h1>Profile <span th:if="${user.firstName}" th:text="${user.firstName}"></span></h1>
-        <p th:if="${user.firstName}"><strong>Full Name: </strong> <span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span></p>
-        <p th:if="${user.email}"><strong>Email: </strong> <span th:text="${user.email}"></span></p>
-    </body>
+<body>
+	<div th:replace="fragments/header::navbar"></div>
+	<div class="container">
+		<h1>
+			Profile <span th:if="${user.firstName}" th:text="${user.firstName}"></span>
+		</h1>
+		<p th:if="${user.firstName}">
+			<strong>Full Name: </strong> <span th:text="${user.firstName}"></span>
+			<span th:text="${user.lastName}"></span>
+		</p>
+		<p th:if="${user.email}">
+			<strong>Email: </strong> <span th:text="${user.email}"></span>
+		</p>
+		
+		<hr/>
+		
+		<form th:if="${!cities.isEmpty()}">
+			<select id="cities">
+				<option th:each="city:${cities}" th:value="${city}" th:text="${city}"></option>
+			</select>
+		</form>
+		
+	</div>
+	 <footer th:replace="fragments/footer::footer"></footer>
+	 <div th:replace="fragments/scripts::jsFiles"></div>
+</body>
 </html>

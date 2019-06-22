@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head::head"></head>
+<head th:replace="fragments/header::head"></head>
 
     <body>
-        <div  th:replace="fragments/navbar::navbar"></div>
-        <h1>Hello <span th:text="${title}"></span></h1>
+        <div  th:replace="fragments/header::navbar"></div>
+        <div class="container">
+        	<h1>Hello <span th:text="${title}"></span></h1>
+        </div>
     </body>
+    <footer th:replace="fragments/footer::footer"></footer>
+    <div th:replace="fragments/scripts::jsFiles"></div>
 </html>

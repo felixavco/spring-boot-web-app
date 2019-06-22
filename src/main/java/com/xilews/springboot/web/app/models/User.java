@@ -2,6 +2,7 @@ package com.xilews.springboot.web.app.models;
 
 public class User {
 	
+	private int id;
 	private String firstName; 
 	private String lastName; 
 	private String email;
@@ -11,8 +12,8 @@ public class User {
 		
 	}
 	
-	public User(String firstName, String lastName, String email) {
-		super();
+	public User(int id, String firstName, String lastName, String email) {
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -20,6 +21,15 @@ public class User {
 	
 	
 	//* Getters & Setters
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
