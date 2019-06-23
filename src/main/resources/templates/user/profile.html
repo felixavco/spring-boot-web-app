@@ -15,7 +15,9 @@
 		<p th:if="${user.email}">
 			<strong>Email: </strong> <span th:text="${user.email}"></span>
 		</p>
-		
+		<p>
+			<strong>City: </strong> <span id="city-cont"></span>
+		</p>
 		<hr/>
 		
 		<form th:if="${!cities.isEmpty()}">

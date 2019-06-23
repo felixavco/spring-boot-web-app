@@ -5,7 +5,31 @@
     <body>
         <div  th:replace="fragments/header::navbar"></div>
         <div class="container">
-        	<h1>Hello <span th:text="${title}"></span></h1>
+            <h1 class="text-center display-1 my-5">Hello Spring Framework</h1>
+            
+            <form class="mb-3" action="/store/search" method="GET">
+                <h4 class="mb-2">Search Items</h4>
+                <input type="text" placeholder="Search an Item" name="item">
+                <button type="submit">Search Items</button>
+                <small>Item is required</small>
+            </form>
+
+            <form class="mb-3" action="/store/location" method="GET">
+                <h4 class="mb-2">Search a Location</h4>
+                <input type="text" placeholder="Search an Location" name="location">
+                <button type="submit">Search Location</button>
+                <small>Default value is Apopa</small>
+            </form>
+
+            
+            <form class="mb-3" action="/store/order" method="GET">
+                <h4 class="mb-2">Set an Order</h4>
+                <input type="text" placeholder="Search an Item" name="item">
+                <input type="number" placeholder="Price $0.00" name="price">
+                <button type="submit">Set Order</button>
+                <small>Item is Required, default price is $1.00</small>
+            </form>
+
         </div>
     </body>
     <footer th:replace="fragments/footer::footer"></footer>

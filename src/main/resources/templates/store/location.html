@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Template fragments -->
+<head th:replace="fragments/header::head"></head>
+<!--/ Template fragments -->
+
+    <body>
+        <!-- Template fragments -->
+        <div  th:replace="fragments/header::navbar"></div>
+        <!--/ Template fragments -->
+        <div class="container">
+            <h2 class="display-4 text-center my-4">Search Results</h2>
+            <a class="btn btn-info my-3" th:href="@{/}">Back to Home</a>
+            <h4>The Location is: <span th:text="${result}"></span></h4>
+        </div>
+    </body>
+
+    <!-- Template fragments -->
+    <footer th:replace="fragments/footer::footer"></footer>
+    <div th:replace="fragments/scripts::jsFiles"></div>
+     <!--/ Template fragments -->
+</html>
