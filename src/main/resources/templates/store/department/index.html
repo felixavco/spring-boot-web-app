@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Template fragments -->
+
+<head th:replace="fragments/header::head"></head>
+<!--/ Template fragments -->
+
+<body>
+    <!-- Template fragments -->
+    <div th:replace="fragments/header::navbar"></div>
+    <!--/ Template fragments -->
+    <div class="container">
+        <a class="btn btn-info my-3" th:href="@{/}">Back to Home</a>
+        <h1 class="display-4 mb-4 text-center">Department</h1>
+        <div class="card">
+            <div class="card-body">
+                <div class="card-head">
+                    <h3 class="text-center" th:text="${department}"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Template fragments -->
+<footer th:replace="fragments/footer::footer"></footer>
+<div th:replace="fragments/scripts::jsFiles"></div>
+<!--/ Template fragments -->
+
+</html>

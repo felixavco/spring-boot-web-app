@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Template fragments -->
+<head th:replace="fragments/header::head"></head>
+<!--/ Template fragments -->
+
+    <body>
+        <!-- Template fragments -->
+        <div  th:replace="fragments/header::navbar"></div>
+        <!--/ Template fragments -->
+        <div class="container">
+            <h2 class="display-4 text-center my-4">Category Details</h2>
+            <a class="btn btn-info my-3" th:href="@{/}">Back to Home</a>
+            <h3>Category: <span th:text="${category}"></span></h3>
+            <h3>Quantity: <span th:text="${qty}"></span></h3>
+        </div>
+    </body>
+
+    <!-- Template fragments -->
+    <footer th:replace="fragments/footer::footer"></footer>
+    <div th:replace="fragments/scripts::jsFiles"></div>
+     <!--/ Template fragments -->
+</html>

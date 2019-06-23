@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.xilews.springboot.web.app.models.User;
 
 @Controller
-@RequestMapping({"/user", "/app", "/users"})
+@RequestMapping({"/user", "/app", "/users", "/", ""})
 public class IndexController {
 
 	@GetMapping({ "/", "/home", "/index", "" })
@@ -40,6 +40,7 @@ public class IndexController {
 	@GetMapping("/list")
 	public String list(Model model) {	
 		model.addAttribute("title", "List of users");
+
 		return "user/list";
 	}
 	

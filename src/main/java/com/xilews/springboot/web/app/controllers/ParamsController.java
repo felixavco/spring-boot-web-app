@@ -1,5 +1,7 @@
 package com.xilews.springboot.web.app.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,5 +33,24 @@ public class ParamsController {
     	model.addAttribute("item", item);
     	model.addAttribute("price", price);
     	return "store/order";
+    }
+
+    //* Using HttpServletRequest
+    @GetMapping("/category")
+    public String getCategory(HttpServletRequest request,  Model model) {
+        Integer qty = null;
+        String category = null;
+
+        try {
+            category = request.getParameter("category");
+            qty = Integer.parseInt(request.getParameter("qty"));
+        } catch (NumberFormatException e) {
+            qty = 0;
+        }
+
+        model.addAttribute("category", category);
+        model.addAttribute("qty", qty);
+       
+        return "store/category";
     }
 }

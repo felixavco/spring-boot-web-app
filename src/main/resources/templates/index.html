@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="fragments/header::head"></head>
 
-    <body>
-        <div  th:replace="fragments/header::navbar"></div>
-        <div class="container">
-            <h1 class="text-center display-1 my-5">Hello Spring Framework</h1>
-            
-            <form class="mb-3" action="/store/search" method="GET">
-                <h4 class="mb-2">Search Items</h4>
-                <input type="text" placeholder="Search an Item" name="item">
-                <button type="submit">Search Items</button>
-                <small>Item is required</small>
-            </form>
+<body>
+    <div th:replace="fragments/header::navbar"></div>
+    <div class="container">
+        <h1 class="text-center display-1 my-5">Hello Spring Framework</h1>
 
-            <form class="mb-3" action="/store/location" method="GET">
-                <h4 class="mb-2">Search a Location</h4>
-                <input type="text" placeholder="Search an Location" name="location">
-                <button type="submit">Search Location</button>
-                <small>Default value is Apopa</small>
-            </form>
-
-            
-            <form class="mb-3" action="/store/order" method="GET">
-                <h4 class="mb-2">Set an Order</h4>
-                <input type="text" placeholder="Search an Item" name="item">
-                <input type="number" placeholder="Price $0.00" name="price">
-                <button type="submit">Set Order</button>
-                <small>Item is Required, default price is $1.00</small>
-            </form>
-
+        <div class="card p-3 my-3">
+            <h4 class="text-center">Departments</h4>
+            <div class="d-flex justify-content-around align-items-center my-3">
+                <a th:href="@{/store/department/1}" class="btn btn-success">Dept ID 1</a>
+                <a th:href="@{/store/department/2}" class="btn btn-success">Dept ID 2</a>
+                <a th:href="@{/store/department/3}" class="btn btn-success">Dept ID 3</a>
+                <a th:href="@{/store/department/4}" class="btn btn-success">Dept ID 4</a>
+                <a th:href="@{/store/department/5}" class="btn btn-success">Dept ID 5</a>
+            </div>
         </div>
-    </body>
-    <footer th:replace="fragments/footer::footer"></footer>
-    <div th:replace="fragments/scripts::jsFiles"></div>
+
+
+        <div class="card p-3 my-3" th:if="${!cities.isEmpty()}">
+            <h4 class="text-center">Cities</h4>
+            <div class="d-flex justify-content-around align-items-center my-4">
+                <a class="btn btn-info" th:each="city:${cities}" th:href="@{/store/department/city/} + ${city}" th:text="${city}"></a>
+            </div>
+        </div>
+
+        <form class="mb-3" action="/store/search" method="GET">
+            <h4 class="mb-2">Search Items</h4>
+            <input type="text" placeholder="Search an Item" name="item">
+            <button type="submit">Search Items</button>
+            <small>Item is required</small>
+        </form>
+
+        <form class="mb-3" action="/store/location" method="GET">
+            <h4 class="mb-2">Search a Location</h4>
+            <input type="text" placeholder="Search an Location" name="location">
+            <button type="submit">Search Location</button>
+            <small>Default value is Apopa</small>
+        </form>
+
+
+        <form class="mb-3" action="/store/order" method="GET">
+            <h4 class="mb-2">Set an Order</h4>
+            <input type="text" placeholder="Search an Item" name="item">
+            <input type="number" placeholder="Price $0.00" name="price">
+            <button type="submit">Set Order</button>
+            <small>Item is Required, default price is $1.00</small>
+        </form>
+
+        <form class="mb-3" action="/store/category" method="GET">
+            <h4 class="mb-2">Set Category</h4>
+            <input type="text" placeholder="Enter Category " name="category">
+            <input type="number" placeholder="Quantity" name="qty">
+            <button type="submit">Set Category</button>
+        </form>
+    </div>
+</body>
+<footer th:replace="fragments/footer::footer"></footer>
+<div th:replace="fragments/scripts::jsFiles"></div>
+
 </html>
